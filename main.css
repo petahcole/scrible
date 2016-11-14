@@ -1,3 +1,61 @@
 nav {
   background: #416165;
+  color: #D9DBF1;
+}
+
+small  {
+  font-size: 15px;
+}
+
+footer .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+footer div a  {
+  color: #D9DBF1;
+  padding-bottom: 1em;
+}
+
+footer.page-footer {
+  background: #416165;
+  color: #D9DBF1;
+}
+
+section {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.btn-large  {
+  height: 30vh;
+  width: 40vw;
+  margin: 1em;
+  background: #0B3948;
+}
+
+.btn-large:hover {
+  background-color: #D0CDD7;
+  color: #0B3948;
+}
+
+h4:hover  {
+  color: #0B3948;
+}
+
+h4  {
+  padding: 1.75em;
+  color: #D9DBF1;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
