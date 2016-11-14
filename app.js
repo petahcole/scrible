@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $("#poetry").click(function() {
+      $(".prompt").html("")
         // event.preventDefault();
         $.get("https://www.reddit.com/r/POETRYPrompts/new.json", getPoetryPrompt)
     });
@@ -12,5 +13,6 @@ function getPoetryPrompt(poetryData) {
         poetryPrompts.push(poetryData.data.children[i].data.title);
     }
     var randomPoetryPrompt = poetryPrompts[Math.floor(Math.random() * poetryPrompts.length)];
-    $("main").append("<h5>'" + randomPoetryPrompt + "'</h5>");
+    var randomPoetryPrompt = randomPoetryPrompt.replace("[PP]","")
+    $(".prompt").append("<h5>'" + randomPoetryPrompt + " '</h5>");
 }
