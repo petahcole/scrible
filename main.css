@@ -1,7 +1,13 @@
+
+/*HEADER*/
+
 nav {
   background: #416165;
   color: #D9DBF1;
 }
+
+
+/*FOOTER*/
 
 small  {
   font-size: 15px;
@@ -23,6 +29,9 @@ footer.page-footer {
   color: #D9DBF1;
 }
 
+
+/*BUTTONS*/
+
 section {
   display: flex;
   justify-content: space-between;
@@ -30,13 +39,22 @@ section {
 }
 
 .btn-large  {
-  height: 30vh;
+  height: 40vh;
   width: 40vw;
   margin: 1em;
   background: #0B3948;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
 }
 
 .btn-large:hover {
+  background-color: #D0CDD7;
+  color: #0B3948;
+}
+
+#poetry:hover {
   background-color: #D0CDD7;
   color: #0B3948;
 }
@@ -46,14 +64,17 @@ h4:hover  {
 }
 
 h4  {
-  padding: 1.75em;
   color: #D9DBF1;
 }
+
+/*MAIN*/
 
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  color: #0B3948;
+  justify-content: space-between;
 }
 
 main {
