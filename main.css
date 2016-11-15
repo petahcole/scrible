@@ -75,6 +75,8 @@ body {
   flex-direction: column;
   color: #0B3948;
   justify-content: space-between;
+  background-image: url("assets/Paper Patterns/handmadepaper/handmadepaper_@2X.png");
+  
 }
 
 main {
