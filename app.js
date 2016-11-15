@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    $('.modal').modal();
     $("#poetry").click(function(event) {
         event.preventDefault();
         $(".prompt").html("");

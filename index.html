@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link rel="stylesheet" href="main.css">
     <title>Scrible</title>
-  </head>
-  <body>
+</head>
+
+<body>
 
     <header>
-      <nav>
-        <div class="nav-wrapper container">
-          <a href="#" class="brand-logo">Scrible</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="archive.html">Archive</a></li>
-          </ul>
-        </div>
-      </nav>
+        <nav>
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">Scrible</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="archive.html">Archive</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <main class="container center-align">
 
-      <h2>What do you want to write today?</h2>
+        <h2>What do you want to write today?</h2>
 
-      <section>
-        <a id="poetry" class="btn-large z-depth-3"><h4>Poetry</h4></a>
-        <a id="prose" class="btn-large z-depth-3"><h4>Prose</h4></a>
-      </section>
+        <section>
+            <a id="poetry" class="btn-large z-depth-3" data-target="modal1"><h4>Poetry</h4></a>
+            <a id="prose" class="btn-large z-depth-3" data-target="modal1"><h4>Prose</h4></a>
+        </section>
 
-      <div class="prompt">
 
-      </div>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <div class="prompt"></div>
+                <textarea class="z-depth-2" name="Story" rows="30" cols="30"></textarea>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close btn-flat">Done</a>
+            </div>
+        </div>
+
     </main>
 
     <footer class="page-footer">
         <div class="container">
-          <small>© 2014 Copyright Text</small>
-          <a href="archive.html">Archive</a>
+            <small>© Don't Steal my Shit Yo</small>
+            <a href="archive.html">Archive</a>
         </div>
     </footer>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-  </body>
+</body>
+
 </html>

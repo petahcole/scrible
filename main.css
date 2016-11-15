@@ -80,3 +80,12 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/*MODAL*/
+
+textarea  {
+  height: 30vh;
+  width: 40vw;
+  border: 2px solid #D0CDD7;
+  background-image: url("assets/Paper Patterns/handmadepaper/handmadepaper_@2X.png");
+}
