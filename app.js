@@ -4,6 +4,8 @@ $(document).ready(function() {
       complete: function() { $("#story-input").val(""); }
     });
 
+
+
     var minMax = setRandomMinMax();
     var minNum = minMax.wordMin;
     var maxNum = minMax.wordMax;
@@ -17,6 +19,7 @@ $(document).ready(function() {
         var minMax = setRandomMinMax();
         minNum = minMax.wordMin;
         maxNum = minMax.wordMax;
+        $(".congrats").html("");
     });
 
     $("#prose").click(function(event) {
@@ -32,6 +35,8 @@ $(document).ready(function() {
         var minMax = setRandomMinMax();
         minNum = minMax.wordMin;
         maxNum = minMax.wordMax;
+        $(".congrats").html("");
+
     });
 
     $("#count").click( function(event) {
@@ -45,6 +50,11 @@ $(document).ready(function() {
       } else if ($storyLength < minNum) {
           $(".word-count").html($storyLength + " Words. You need to write more!");
         }
+    });
+
+    $("#done").click(function(event)  {
+      event.preventDefault();
+      $(".congrats").html("You did it! You wrote today!")
     });
 
 });
