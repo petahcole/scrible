@@ -1,10 +1,15 @@
 $(document).ready(function() {
 
-    $('.modal').modal();
+    $('.modal').modal({
+      complete: function() { $("#story-input").val(""); }
+    });
+
+
     $("#poetry").click(function(event) {
         event.preventDefault();
         $(".prompt").html("");
         $.get("https://www.reddit.com/r/POETRYPrompts/new.json", getPoetryPrompt);
+        setRandomMinMax();
     });
 
     $("#prose").click(function(event) {
@@ -16,6 +21,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: getProseCharacter
         });
+        setRandomMinMax();
     });
 });
 
@@ -36,7 +42,7 @@ function getProsePrompt(proseData) {
     }
     var randomProsePrompt = prosePrompts[Math.floor(Math.random() * prosePrompts.length)];
     randomProsePrompt = randomProsePrompt.replace("[WP]", "");
-    $(".prompt").append("<h6>'" + "Prompt:" + randomProsePrompt + "'</h6>")
+    $(".prompt").append("<h6>" + "Prompt:" + randomProsePrompt + "</h6>")
 
 }
 
@@ -50,5 +56,30 @@ function getProseCharacter(userData) {
     };
     firstName = capitalizeFirstLetter(firstName);
     lastName = capitalizeFirstLetter(lastName);
-    $(".prompt").append("<h6>'" + "Name: " + firstName + " " + lastName + "'</h6>")
+    $(".prompt").append("<h6>" + "Name: " + firstName + " " + lastName + "</h6>");
+
 }
+
+
+//Word Restrictions and Counter
+
+function setRandomMinMax()  {
+    var minWordsArr = [10, 25, 50];
+    var maxWordsArr = [75, 100, 150, 200, 300]
+    function randomize(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+    var wordMin = randomize(minWordsArr);
+    var wordMax = randomize(maxWordsArr);
+    $(".word-restrictions").html("Min: " + wordMin + " Max: " + wordMax);
+}
+
+var $count = $("#count");
+$count.click( function(event) {
+  event.preventDefault();
+  if ($("#story-input").length < wordMin) {
+      $(".word-count").html("You need to write more!")
+  } else if ($("#story-input").length > wordMax)  {
+    $(".word-count").html("You need to delete some stuff")
+  }
+})

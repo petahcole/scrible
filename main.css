@@ -89,3 +89,13 @@ textarea  {
   border: 2px solid #D0CDD7;
   background-image: url("assets/Paper Patterns/handmadepaper/handmadepaper_@2X.png");
 }
+
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.word-restrictions {
+  padding-left: 1em;
+}
