@@ -9,6 +9,7 @@ $(document).ready(function() {
     var minMax = setRandomMinMax();
     var minNum = minMax.wordMin;
     var maxNum = minMax.wordMax;
+    var archivedStories = [];
 
 
     $("#poetry").click(function(event) {
@@ -66,9 +67,10 @@ $(document).ready(function() {
     $("#save").click(function(event)  {
       event.preventDefault();
       var $input = $("#story-input").val();
-      var date = Date();
-      localStorage.setItem(date, $input);
-      $("<card-title").html(date);
+      pushToLocalStorage(archivedStories, $input)
+
+      // localStorage.setItem("archive", $input);
+
     })
 
 });
@@ -124,4 +126,20 @@ function setRandomMinMax()  {
       wordMin: wordMin,
       wordMax: wordMax
     }
+}
+
+
+function pushToLocalStorage(archivedStories, $input) {
+    var storedItem = JSON.parse(localStorage.getItem("archive"));
+    if (localStorage.key("archive") !== "archive") {
+        archivedStories.push($input);
+        localStorage.setItem("archive", JSON.stringify(archivedStories));
+    } else if (archivedStories.length < storedItem.length) {
+        archivedStories = storedItem;
+        archivedStories.push($input);
+        localStorage.setItem("archive", JSON.stringify(archivedStories));
+    }
+
+
+
 }

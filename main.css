@@ -104,3 +104,11 @@ textarea  {
 .word-restrictions {
   padding-left: 1em;
 }
+
+/*ARCHIVE*/
+
+#main-archive {
+  margin-left: 5em;
+  margin-right: 5em;
+  padding-top: 2em;
+}
