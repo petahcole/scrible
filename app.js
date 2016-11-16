@@ -39,6 +39,8 @@ $(document).ready(function() {
 
     });
 
+    // Wordcount
+    
     $("#count").click( function(event) {
       event.preventDefault();
       var $storyLength = $("#story-input").val().split(" ").length;
@@ -52,10 +54,21 @@ $(document).ready(function() {
         }
     });
 
-    $("#done").click(function(event)  {
+    // Congrats
+
+    $("#save").click(function(event)  {
       event.preventDefault();
       $(".congrats").html("You did it! You wrote today!")
     });
+
+    // Save to LocalStorage
+
+    $("#save").click(function(event)  {
+      event.preventDefault();
+      var $input = $("#story-input").val();
+      var date = Date();
+      localStorage.setItem(date, $input);
+    })
 
 });
 
