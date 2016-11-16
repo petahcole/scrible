@@ -40,7 +40,7 @@ $(document).ready(function() {
     });
 
     // Wordcount
-    
+
     $("#count").click( function(event) {
       event.preventDefault();
       var $storyLength = $("#story-input").val().split(" ").length;
@@ -68,6 +68,7 @@ $(document).ready(function() {
       var $input = $("#story-input").val();
       var date = Date();
       localStorage.setItem(date, $input);
+      $("<card-title").html(date);
     })
 
 });

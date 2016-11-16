@@ -83,6 +83,9 @@ main {
   flex: 1 0 auto;
 }
 
+p   {
+  color: #0B3948
+}
 /*MODAL*/
 
 textarea  {
