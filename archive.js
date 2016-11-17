@@ -4,7 +4,6 @@ $("document").ready(function()  {
 
   for (var i = 0; i < savedStories.length; i++) {
     var stories = savedStories[i];
-    console.log(stories);
     $("main").append(
 
               "<div class='col s4'>" +

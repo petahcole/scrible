@@ -105,6 +105,11 @@ textarea  {
   padding-left: 1em;
 }
 
+h6  {
+  font-size: 16pt;
+  color: #C32F27;
+}
+
 /*ARCHIVE*/
 
 #main-archive {

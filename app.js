@@ -82,7 +82,7 @@ function getPoetryPrompt(poetryData) {
     }
     var randomPoetryPrompt = poetryPrompts[Math.floor(Math.random() * poetryPrompts.length)];
     randomPoetryPrompt = randomPoetryPrompt.replace("[PP]", "");
-    $(".prompt").append("<h6>'" + randomPoetryPrompt + " '</h6>");
+    $(".prompt").append("<h6>" +  "Prompt: " + randomPoetryPrompt + " </h6>");
 };
 
 function getProsePrompt(proseData) {
