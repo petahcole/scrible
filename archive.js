@@ -6,7 +6,7 @@ $("document").ready(function()  {
     var stories = savedStories[i];
     $("main").append(
 
-              "<div class='col s12 m4 populate-stories'>" +
+              "<div class='col s12 m6 l4 populate-stories'>" +
                   "<div class='card'>" +
                       "<div class='card-content'>" +
                           "<p>" + stories + "</p>" +
