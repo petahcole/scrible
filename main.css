@@ -4,9 +4,29 @@
 nav {
   background: #416165;
   color: #D9DBF1;
+  height: 5em;
+  /*padding-top: .5em;*/
 }
 
+#logo-img {
+  height: 4em;
+  width: 4em;
+  /*display: inline;*/
+  margin-top: .5em;
+}
 
+#app-name {
+  margin-top: .1em;
+}
+
+#nav-mobile {
+  margin-top: .1em;
+}
+
+#main-header {
+  display: flex;
+  justify-content: space-between;
+}
 /*FOOTER*/
 
 small  {
