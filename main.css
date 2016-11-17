@@ -58,6 +58,7 @@ section {
 
 }
 
+
 .btn-large  {
   height: 40vh;
   width: 40vw;
@@ -147,4 +148,14 @@ h6  {
 
 .populate-stories .card .card-content p:hover {
   overflow:scroll;
+}
+
+/*QUERIES*/
+
+@media (max-width:641px)  {
+  section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 }
