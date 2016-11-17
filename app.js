@@ -1,10 +1,10 @@
+
+
 $(document).ready(function() {
 
     $('.modal').modal({
       complete: function() { $("#story-input").val(""); }
     });
-
-
 
     var minMax = setRandomMinMax();
     var minNum = minMax.wordMin;
@@ -14,66 +14,47 @@ $(document).ready(function() {
 
     $("#poetry").click(function(event) {
         event.preventDefault();
-        $(".prompt").html("");
-        $(".word-count").html("");
-        $.get("https://www.reddit.com/r/POETRYPrompts/new.json", getPoetryPrompt);
-        var minMax = setRandomMinMax();
-        minNum = minMax.wordMin;
-        maxNum = minMax.wordMax;
-        $(".congrats").html("");
+        setPoetryPrompt(minMax, minNum, maxNum)
     });
 
     $("#prose").click(function(event) {
         event.preventDefault();
-        $(".prompt").html("");
-        $(".word-count").html("");
-        $.get("https://www.reddit.com/r/WritingPrompts/top.json", getProsePrompt);
-        $.ajax({
-            url: 'https://randomuser.me/api/',
-            dataType: 'json',
-            success: getProseCharacter
-        });
-        var minMax = setRandomMinMax();
-        minNum = minMax.wordMin;
-        maxNum = minMax.wordMax;
-        $(".congrats").html("");
-
+        setProsePrompt(minMax, minNum, maxNum);
     });
 
     // Wordcount
 
     $("#count").click( function(event) {
       event.preventDefault();
-      var $storyLength = $("#story-input").val().split(" ").length;
-
-      if ($storyLength > minNum && $storyLength < maxNum)  {
-          $(".word-count").html($storyLength + " Words. You're in the sweet spot!");
-      } else if ($storyLength > maxNum)  {
-        $(".word-count").html($storyLength + " Words. You need to delete some stuff!");
-      } else if ($storyLength < minNum) {
-          $(".word-count").html($storyLength + " Words. You need to write more!");
-        }
+      wordCount(minNum, maxNum)
     });
 
     // Congrats
 
     $("#save").click(function(event)  {
       event.preventDefault();
-      $(".congrats").html("You did it! You wrote today!")
+      $(".congrats").html("You did it! You wrote today!");
     });
 
     // Save to LocalStorage
 
     $("#save").click(function(event)  {
       event.preventDefault();
-      var $input = $("#story-input").val();
-      pushToLocalStorage(archivedStories, $input)
-
-      // localStorage.setItem("archive", $input);
-
+      pushToLocalStorage(archivedStories)
     })
 
-});
+}); //end doc ready func
+
+function setPoetryPrompt(minMax, minNum, maxNum)  {
+
+  $(".prompt").html("");
+  $(".word-count").html("");
+  $.get("https://www.reddit.com/r/POETRYPrompts/new.json", getPoetryPrompt);
+  var minMax = setRandomMinMax();
+  minNum = minMax.wordMin;
+  maxNum = minMax.wordMax;
+  $(".congrats").html("");
+}
 
 function getPoetryPrompt(poetryData) {
     var poetryPrompts = [];
@@ -84,6 +65,22 @@ function getPoetryPrompt(poetryData) {
     randomPoetryPrompt = randomPoetryPrompt.replace("[PP]", "");
     $(".prompt").append("<h6>" +  "Prompt: " + randomPoetryPrompt + " </h6>");
 };
+
+function setProsePrompt (minMax, minNum, maxNum)  {
+  $(".prompt").html("");
+  $(".word-count").html("");
+  $.get("https://www.reddit.com/r/WritingPrompts/top.json", getProsePrompt);
+  $.ajax({
+      url: 'https://randomuser.me/api/',
+      dataType: 'json',
+      success: getProseCharacter
+  });
+  var minMax = setRandomMinMax();
+  minNum = minMax.wordMin;
+  maxNum = minMax.wordMax;
+  $(".congrats").html("");
+}
+
 
 function getProsePrompt(proseData) {
     var prosePrompts = [];
@@ -111,6 +108,17 @@ function getProseCharacter(userData) {
 }
 
 
+function wordCount(minNum, maxNum)  {
+  var $storyLength = $("#story-input").val().split(" ").length;
+  if ($storyLength > minNum && $storyLength < maxNum)  {
+      $(".word-count").html($storyLength + " Words. You're in the sweet spot!");
+  } else if ($storyLength > maxNum)  {
+    $(".word-count").html($storyLength + " Words. You need to delete some stuff!");
+    } else if ($storyLength < minNum) {
+      $(".word-count").html($storyLength + " Words. You need to write more!");
+    }
+}
+
 //Word Restrictions
 
 function setRandomMinMax()  {
@@ -129,7 +137,8 @@ function setRandomMinMax()  {
 }
 
 
-function pushToLocalStorage(archivedStories, $input) {
+function pushToLocalStorage(archivedStories) {
+    var $input = $("#story-input").val();
     var storedItem = JSON.parse(localStorage.getItem("archive"));
     if (localStorage.key("archive") !== "archive") {
         archivedStories.push($input);
@@ -139,7 +148,4 @@ function pushToLocalStorage(archivedStories, $input) {
         archivedStories.push($input);
         localStorage.setItem("archive", JSON.stringify(archivedStories));
     }
-
-
-
 }

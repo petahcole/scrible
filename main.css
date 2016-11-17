@@ -123,6 +123,7 @@ textarea  {
 
 .word-restrictions {
   padding-left: 1em;
+  color: #C32F27;
 }
 
 h6  {
@@ -135,5 +136,15 @@ h6  {
 #main-archive {
   margin-left: 5em;
   margin-right: 5em;
-  padding-top: 2em;
+}
+
+.populate-stories .card .card-content p {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  height: 15em;
+  overflow: hidden;
+}
+
+.populate-stories .card .card-content p:hover {
+  overflow:scroll;
 }
