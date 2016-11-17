@@ -138,14 +138,15 @@ function setRandomMinMax()  {
 
 
 function pushToLocalStorage(archivedStories) {
-    var $input = $("#story-input").val();
+    var input = document.getElementById("story-input").value;
+    input = input.replace( /\n/g, "<br>");
     var storedItem = JSON.parse(localStorage.getItem("archive"));
     if (localStorage.key("archive") !== "archive") {
-        archivedStories.push($input);
+        archivedStories.push(input);
         localStorage.setItem("archive", JSON.stringify(archivedStories));
     } else if (archivedStories.length < storedItem.length) {
         archivedStories = storedItem;
-        archivedStories.push($input);
+        archivedStories.push(input);
         localStorage.setItem("archive", JSON.stringify(archivedStories));
     }
 }

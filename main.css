@@ -109,6 +109,10 @@ p   {
 }
 /*MODAL*/
 
+#modal1 {
+  max-height: 100%;
+}
+
 textarea  {
   height: 40vh;
   width: 50vw;
@@ -139,7 +143,7 @@ h6  {
   margin-right: 5em;
 }
 
-.populate-stories .card .card-content p {
+/*.populate-stories .card .card-content p {
   margin-top: .5em;
   margin-bottom: .5em;
   height: 15em;
@@ -148,7 +152,7 @@ h6  {
 
 .populate-stories .card .card-content p:hover {
   overflow:scroll;
-}
+}*/
 
 /*QUERIES*/
 
